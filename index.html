@@ -76,7 +76,7 @@
                     <p class="text-lg text-[var(--cor-terciaria)] max-w-3xl mx-auto md:mx-0 text-justify">Me chamo Andreza Pordeus, sou médica veterinária com 3 anos de experiência em clínica médica e cirúrgica de pequenos animais. Ao longo da minha trajetória profissional, tenho me dedicado ao atendimento de cães e gatos, realizando consultas, exames, intervenções cirúrgicas e tratamentos especializados com foco no bem-estar, prevenção de doenças e recuperação dos pacientes. </p>
                 </div>
             </div>
-            <!-- Shape Divider -->
+        
             <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]" style="transform: rotate(180deg);">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[55px]">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current" style="color: var(--cor-secundaria);"></path>
@@ -88,10 +88,9 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Serviços</h2>
                 
-                <!-- Swiper -->
                 <div class="swiper servicesCarousel relative">
                     <div class="swiper-wrapper">
-                        <!-- Slide 1 -->
+                        
                         <div class="swiper-slide">
                             <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
                                 <img src="./assets/images/consultas.jpg" alt="Foto de um animal a ser cuidado" class="w-full h-64 object-cover">
@@ -101,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 2 -->
+                     
                         <div class="swiper-slide">
                             <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
                                 <img src="./assets/images/vacinas.jpg" alt="Foto das instalações da clínica" class="w-full h-64 object-cover">
@@ -111,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 3 -->
+
                         <div class="swiper-slide">
                             <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
                                 <img src="./assets/images/cirurgias.jpg" alt="Foto da equipa veterinária" class="w-full h-64 object-cover">
@@ -125,7 +124,7 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <!-- Shape Divider -->
+           
             <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]" style="transform: rotate(180deg);">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[55px]">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current" style="color: var(--cor-primaria);"></path>
@@ -180,10 +179,10 @@
         <p class="text-[var(--cor-primaria)]"></p>
     </footer>
 
-    <!-- Link para o JS do Swiper -->
+   
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Script de inicialização do Swiper -->
+
     <script>
         var swiper = new Swiper(".servicesCarousel", {
             slidesPerView: 1,
@@ -207,35 +206,32 @@
             }
         });
 
-        // Script para enviar formulário para o Google Sheets
         const form = document.getElementById('agendamento-form');
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             // !!! IMPORTANTE: Substitua pela URL do seu script do Google Apps !!!
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwaymlwRLYqTAiihxycufanIWpCSRKhVShDCMFfh3xEk-Q9e4ELeOuU6VxbuwHIROtE9Q/exec'; 
             const formData = new FormData(form);
             const submitButton = form.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
-            
+
             submitButton.disabled = true;
             submitButton.innerHTML = 'Enviando...';
 
             try {
-                fetch(scriptURL, { method: 'POST', body: formData});
+                await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
+                
+                alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
+                form.reset();
             } catch (error) {
-                console.error('Erro durante o envio (ignorado):', error);
+                console.error('Erro ao enviar o formulário:', error);
+                alert('Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.');
             } finally {
-                // Atraso para dar tempo ao envio antes de mostrar o alerta e resetar
-                setTimeout(() => {
-                    alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
-                    form.reset();
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = originalButtonText;
-                }, 1000); // 1 segundo de espera
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
             }
         });
 
-        // Script para menu hambúrguer
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => {
