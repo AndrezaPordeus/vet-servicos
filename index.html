@@ -223,18 +223,15 @@
             submitButton.innerHTML = 'Enviando...';
 
             try {
-                const response = await fetch(scriptURL, { method: 'POST', body: formData });
-                const result = await response.json();
-                
-                if (result.result === 'success') {
-                    alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
-                    form.reset();
-                } else {
-                    
-                    throw new Error(result.error || 'Ocorreu um erro desconhecido no servidor.');
-                }
+                // A opção 'no-cors' envia os dados, mas não permite ler a resposta.
+                // Isso evita o erro de CORS, que é comum com o Google Apps Script.
+                await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
+
+                // Como não podemos ler a resposta, assumimos o sucesso se não houver erro de rede.
+                alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
+                form.reset();
             } catch (error) {
-                console.error('Erro ao enviar o formulário:', error);
+                console.error('Erro ao enviar o formulário (pode ser um erro de rede):', error);
                 alert('Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.');
             } finally {
                 submitButton.disabled = false;
