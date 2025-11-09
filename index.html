@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andreza Pordeus - Médica Veterinária</title>
-
     <link rel="icon" href="./assets/images/favicon.png" type="image/png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
@@ -24,6 +21,7 @@
       }
     </style>
 </head>
+
 <body class="font-sans antialiased">
 
     <header class="bg-[var(--cor-secundaria)] text-white shadow-lg sticky top-0 z-50">
@@ -184,78 +182,9 @@
         <p>&copy; 2025 Andreza Pordeus. Todos os direitos reservados.</p>
         <p class="text-[var(--cor-primaria)]"></p>
     </footer>
-
    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
 
-
-    <script>
-        var swiper = new Swiper(".servicesCarousel", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                // Quando a largura da janela for >= 768px
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30
-                },
-                // Quando a largura da janela for >= 1024px
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
-                }
-            }
-        });
-
-        const form = document.getElementById('agendamento-form');
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbz7-nNbmb9kwRHFNjWjrQBZJM1Z3RRV4KklaPUJoss30dfF9yS5S7p9Q7RuHF_4ssQjIg/exec'; 
-            const formData = new FormData(form);
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
-
-            submitButton.disabled = true;
-            submitButton.innerHTML = 'Enviando...';
-
-            try {
-                // A opção 'no-cors' envia os dados, mas não permite ler a resposta.
-                // Isso evita o erro de CORS, que é comum com o Google Apps Script.
-                await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
-
-                // Como não podemos ler a resposta, assumimos o sucesso se não houver erro de rede.
-                alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
-                form.reset();
-            } catch (error) {
-                console.error('Erro ao enviar o formulário (pode ser um erro de rede):', error);
-                alert('Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalButtonText;
-            }
-        });
-
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Script para formatar o campo de telefone
-        const telefoneInput = document.getElementById('telefone');
-        telefoneInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-            value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
-            e.target.value = value;
-        });
-
-    </script>
 </body>
 </html>
