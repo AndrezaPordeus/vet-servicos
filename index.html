@@ -209,7 +209,7 @@
         const form = document.getElementById('agendamento-form');
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            // !!! IMPORTANTE: Substitua pela URL do seu script do Google Apps !!!
+            
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwaymlwRLYqTAiihxycufanIWpCSRKhVShDCMFfh3xEk-Q9e4ELeOuU6VxbuwHIROtE9Q/exec'; 
             const formData = new FormData(form);
             const submitButton = form.querySelector('button[type="submit"]');
@@ -219,10 +219,16 @@
             submitButton.innerHTML = 'Enviando...';
 
             try {
-                await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
+                const response = await fetch(scriptURL, { method: 'POST', body: formData });
+                const result = await response.json();
                 
-                alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
-                form.reset();
+                if (result.result === 'success') {
+                    alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
+                    form.reset();
+                } else {
+                    
+                    throw new Error(result.error || 'Ocorreu um erro desconhecido no servidor.');
+                }
             } catch (error) {
                 console.error('Erro ao enviar o formulário:', error);
                 alert('Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.');
