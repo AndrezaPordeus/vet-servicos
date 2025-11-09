@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreza Pordeus - Médica Veterinária</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Link para o CSS do Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+      :root {
+        --cor-primaria: rgb(129, 162, 223);
+        --cor-secundaria: rgb(77, 123, 175);
+        --cor-terciaria: black;
+      }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <header class="bg-[var(--cor-secundaria)] text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto p-4 flex justify-between items-center">
+            
+            <div>
+                <h1 class="text-3xl font-bold">
+                    Andreza<span class="text-[var(--cor-primaria)]">Pordeus</span>
+                </h1>
+                <p class="text-sm text-[var(--cor-primaria)] -mt-1">Médica Veterinária</p>
+            </div>
+
+            <ul class="flex space-x-6">
+                <li><a href="#sobre" class="text-lg hover:text-[var(--cor-primaria)] transition duration-300">Sobre Mim</a></li>
+                <li><a href="#servicos" class="text-lg hover:text-[var(--cor-primaria)] transition duration-300">Serviços</a></li>
+                <li><a href="#contato" class="text-lg hover:text-[var(--cor-primaria)] transition duration-300">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="sobre" class="py-20 bg-[var(--cor-primaria)]">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-6">Sobre Mim</h2>
+                <p class="text-lg text-black max-w-3xl mx-auto">
+                    
+                </p>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Nossos Serviços</h2>
+                
+                <!-- Swiper -->
+                <div class="swiper servicesCarousel relative">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
+                                <img src="https://via.placeholder.com/600x400/4D7BAF/ffffff?text=Cuidado" alt="Foto de um animal a ser cuidado" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Consultas de Rotina</h3>
+                                    <p class="text-[var(--cor-terciaria)]">Check-ups anuais, diagnósticos e planos de saúde preventivos para manter o seu pet saudável.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
+                                <img src="https://via.placeholder.com/600x400/4D7BAF/ffffff?text=Instalações" alt="Foto das instalações da clínica" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Vacinação</h3>
+                                    <p class="text-[var(--cor-terciaria)]">Proteja o seu companheiro contra doenças comuns com o nosso programa de vacinação completo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
+                                <img src="https://via.placeholder.com/600x400/4D7BAF/ffffff?text=Equipa" alt="Foto da equipa veterinária" class="w-full h-64 object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Pequenas Cirurgias</h3>
+                                    <p class="text-[var(--cor-terciaria)]">Realizamos procedimentos cirúrgicos menores, como castração e remoção de nódulos, com segurança.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-20 bg-[var(--cor-primaria)]">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Entre em Contato</h2>
+                
+                <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                    <div class="mb-5">
+                        <label for="nome" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
+                        <input type="text" id="nome" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-secundaria)]">
+                    </div>
+                    <div class="mb-5">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Seu Email</label>
+                        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-secundaria)]">
+                    </div>
+                    <div class="mb-5">
+                        <label for="mensagem" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                        <textarea id="mensagem" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-secundaria)]"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-[var(--cor-secundaria)] text-white text-lg font-medium px-8 py-3 rounded-lg hover:opacity-90 transition duration-300">
+                            Enviar Mensagem
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[var(--cor-secundaria)] text-white p-6 text-center">
+        <p>&copy; 2025 VetAzul. Todos os direitos reservados.</p>
+        <p class="text-[var(--cor-primaria)]">Feito com carinho e Tailwind CSS</p>
+    </footer>
+
+    <!-- Link para o JS do Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Script de inicialização do Swiper -->
+    <script>
+        var swiper = new Swiper(".servicesCarousel", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                // Quando a largura da janela for >= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                // Quando a largura da janela for >= 1024px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+</body>
+</html>
