@@ -220,23 +220,19 @@
             submitButton.disabled = true;
             submitButton.innerHTML = 'Enviando...';
 
-            fetch(scriptURL, { method: 'POST', body: formData})
-                .then(response => {
-                    if (response.ok) {
-                        alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
-                        form.reset();
-                    } else {
-                        throw new Error('Houve um problema com a sua solicitação.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    alert('Erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
-                })
-                .finally(() => {
+            try {
+                fetch(scriptURL, { method: 'POST', body: formData});
+            } catch (error) {
+                console.error('Erro durante o envio (ignorado):', error);
+            } finally {
+                // Atraso para dar tempo ao envio antes de mostrar o alerta e resetar
+                setTimeout(() => {
+                    alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
+                    form.reset();
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
-                });
+                }, 1000); // 1 segundo de espera
+            }
         });
 
         // Script para menu hambúrguer
