@@ -1,6 +1,6 @@
-# Landing Page - Clínica Veterinária
+# Landing Page - Serviços Veterinários
 
-Este é um projeto pessoal desenvolvido como parte de um exercício prático para aprimorar habilidades em **HTML** e **Tailwind CSS**. O resultado é uma landing page moderna e responsiva para uma clínica veterinária fictícia.
+Este é um projeto pessoal desenvolvido como parte de um exercício prático para aprimorar habilidades em **HTML** e **Tailwind CSS**. O resultado é uma landing page moderna e responsiva para serviços veterinários.
 
 ## 📜 Sobre o Projeto
 
