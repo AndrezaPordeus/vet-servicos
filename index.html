@@ -27,19 +27,38 @@
     <header class="bg-[var(--cor-secundaria)] text-white shadow-lg sticky top-0 z-50">
         <nav class="container mx-auto p-4 flex justify-between items-center">
             
-            <div>
-                <h1 class="text-3xl font-bold text-[var(--cor-terciaria)]">
-                    Andreza<span class="text-[var(--cor-primaria)]">Pordeus</span>
-                </h1>
-                <p class="text-sm text-[var(--cor-primaria)] -mt-1">Médica Veterinária CRMV-BA 7092</p>
+            <a href="#" class="flex items-center gap-3">
+                <img class="h-12 w-12 text-[var(--cor-primaria)]" src="./assets/images/logo.png" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </img>
+                <div>
+                    <h1 class="text-2xl font-bold text-[var(--cor-terciaria)]">Andreza<span class="text-[var(--cor-primaria)]">Pordeus</span></h1>
+                    <p class="text-xs text-[var(--cor-primaria)]">Médica Veterinária CRMV-BA 7092</p>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#sobre" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Sobre Mim</a></li>
+                    <li><a href="#servicos" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Serviços</a></li>
+                    <li><a href="#agendamento" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Agendamento</a></li>
+                </ul>
             </div>
 
-            <ul class="flex space-x-6">
-                <li><a href="#sobre" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Sobre Mim</a></li>
-                <li><a href="#servicos" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Serviços</a></li>
-                <li><a href="#agendamento" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Agendamento</a></li>
-            </ul>
+            <!-- Botão Hambúrguer (Mobile) -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-[var(--cor-terciaria)] focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </nav>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--cor-secundaria)]">
+            <a href="#sobre" class="block py-3 px-4 text-lg text-center text-[var(--cor-terciaria)] hover:bg-[var(--cor-primaria)]">Sobre Mim</a>
+            <a href="#servicos" class="block py-3 px-4 text-lg text-center text-[var(--cor-terciaria)] hover:bg-[var(--cor-primaria)]">Serviços</a>
+            <a href="#agendamento" class="block py-3 px-4 text-lg text-center text-[var(--cor-terciaria)] hover:bg-[var(--cor-primaria)]">Agendamento</a>
+        </div>
     </header>
 
     <main>
@@ -146,7 +165,7 @@
                         <textarea id="motivo" name="motivo" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]"></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="bg-[var(--cor-primaria)] text-[var(--cor-terciaria)] text-lg font-medium px-8 py-3 rounded-lg hover:opacity-90 transition duration-300 color: [var(--cor-primaria)]">
+                        <button type="submit" class="bg-[var(--cor-primaria)] text-[var(--cor-terciaria)] text-lg font-medium px-8 py-3 rounded-lg hover:opacity-90 transition-all duration-300 border-2 border-transparent hover:border-[var(--cor-terciaria)]">
                             Solicitar Agendamento
                         </button>
                     </div>
@@ -218,6 +237,13 @@
                     submitButton.disabled = false;
                     submitButton.innerHTML = originalButtonText;
                 });
+        });
+
+        // Script para menu hambúrguer
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
     </script>
 </body>
