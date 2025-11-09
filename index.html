@@ -7,14 +7,18 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Link para o CSS do Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;800&display=swap');
+
       :root {
-        --cor-primaria: rgb(129, 162, 223);
+        --cor-primaria: oklch(80.9% 0.105 251.813);
         --cor-secundaria: rgb(77, 123, 175);
-        --cor-terciaria: black;
+        --cor-terciaria: oklch(28.2% 0.091 267.935);
+      }
+      body {
+        font-family: 'Nunito', sans-serif;
       }
     </style>
 </head>
@@ -24,34 +28,46 @@
         <nav class="container mx-auto p-4 flex justify-between items-center">
             
             <div>
-                <h1 class="text-3xl font-bold">
+                <h1 class="text-3xl font-bold text-[var(--cor-terciaria)]">
                     Andreza<span class="text-[var(--cor-primaria)]">Pordeus</span>
                 </h1>
-                <p class="text-sm text-[var(--cor-primaria)] -mt-1">Médica Veterinária</p>
+                <p class="text-sm text-[var(--cor-primaria)] -mt-1">Médica Veterinária CRMV-BA 7092</p>
             </div>
 
             <ul class="flex space-x-6">
-                <li><a href="#sobre" class="text-lg hover:text-[var(--cor-primaria)] transition duration-300">Sobre Mim</a></li>
-                <li><a href="#servicos" class="text-lg hover:text-[var(--cor-primaria)] transition duration-300">Serviços</a></li>
-                <li><a href="#contato" class="text-lg hover:text-[var(--cor-primaria)] transition duration-300">Contato</a></li>
+                <li><a href="#sobre" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Sobre Mim</a></li>
+                <li><a href="#servicos" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Serviços</a></li>
+                <li><a href="#agendamento" class="text-lg text-[var(--cor-terciaria)] hover:text-[var(--cor-primaria)] transition duration-300">Agendamento</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
 
-        <section id="sobre" class="py-20 bg-[var(--cor-primaria)]">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-6">Sobre Mim</h2>
-                <p class="text-lg text-black max-w-3xl mx-auto">
-                    
-                </p>
+        <section id="sobre" class="py-20 bg-[var(--cor-primaria)] relative">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="md:w-1/3 flex-shrink-0 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-900 rounded-full blur-xl opacity-70"></div>
+                        <img src="./assets/images/aboutme.jpg" alt="Foto de Andreza Pordeus" class="relative rounded-full w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 text-center md:text-left">
+                    <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-6">Sobre Mim</h2>
+                    <p class="text-lg text-[var(--cor-terciaria)] max-w-3xl mx-auto md:mx-0 text-justify">Me chamo Andreza Pordeus, sou médica veterinária com 3 anos de experiência em clínica médica e cirúrgica de pequenos animais. Ao longo da minha trajetória profissional, tenho me dedicado ao atendimento de cães e gatos, realizando consultas, exames, intervenções cirúrgicas e tratamentos especializados com foco no bem-estar, prevenção de doenças e recuperação dos pacientes. </p>
+                </div>
+            </div>
+            <!-- Shape Divider -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]" style="transform: rotate(180deg);">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[55px]">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current" style="color: var(--cor-secundaria);"></path>
+                </svg>
             </div>
         </section>
 
-        <section id="servicos" class="py-20 bg-white">
+        <section id="servicos" class="py-20 bg-[var(--cor-secundaria)] relative">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Nossos Serviços</h2>
+                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Serviços</h2>
                 
                 <!-- Swiper -->
                 <div class="swiper servicesCarousel relative">
@@ -59,30 +75,30 @@
                         <!-- Slide 1 -->
                         <div class="swiper-slide">
                             <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
-                                <img src="https://via.placeholder.com/600x400/4D7BAF/ffffff?text=Cuidado" alt="Foto de um animal a ser cuidado" class="w-full h-64 object-cover">
+                                <img src="./assets/images/consultas.jpg" alt="Foto de um animal a ser cuidado" class="w-full h-64 object-cover">
                                 <div class="p-6">
-                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Consultas de Rotina</h3>
-                                    <p class="text-[var(--cor-terciaria)]">Check-ups anuais, diagnósticos e planos de saúde preventivos para manter o seu pet saudável.</p>
+                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Consultas</h3>
+                                    <p class="text-[var(--cor-terciaria)]">Check-ups, diagnósticos e planos de saúde preventivos para manter o seu pet sempre saudável.</p>
                                 </div>
                             </div>
                         </div>
                         <!-- Slide 2 -->
                         <div class="swiper-slide">
                             <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
-                                <img src="https://via.placeholder.com/600x400/4D7BAF/ffffff?text=Instalações" alt="Foto das instalações da clínica" class="w-full h-64 object-cover">
+                                <img src="./assets/images/vacinas.jpg" alt="Foto das instalações da clínica" class="w-full h-64 object-cover">
                                 <div class="p-6">
                                     <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Vacinação</h3>
-                                    <p class="text-[var(--cor-terciaria)]">Proteja o seu companheiro contra doenças comuns com o nosso programa de vacinação completo.</p>
+                                    <p class="text-[var(--cor-terciaria)]">Proteja o seu companheiro contra doenças o nosso protocolo de vacinação completo.</p>
                                 </div>
                             </div>
                         </div>
                         <!-- Slide 3 -->
                         <div class="swiper-slide">
                             <div class="overflow-hidden rounded-lg shadow-md bg-[var(--cor-primaria)] border border-[var(--cor-secundaria)]">
-                                <img src="https://via.placeholder.com/600x400/4D7BAF/ffffff?text=Equipa" alt="Foto da equipa veterinária" class="w-full h-64 object-cover">
+                                <img src="./assets/images/cirurgias.jpg" alt="Foto da equipa veterinária" class="w-full h-64 object-cover">
                                 <div class="p-6">
-                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Pequenas Cirurgias</h3>
-                                    <p class="text-[var(--cor-terciaria)]">Realizamos procedimentos cirúrgicos menores, como castração e remoção de nódulos, com segurança.</p>
+                                    <h3 class="text-2xl font-semibold text-[var(--cor-secundaria)] mb-3">Cirurgias e procedimentos</h3>
+                                    <p class="text-[var(--cor-terciaria)]">Cirurgias como castração e remoção de nódulos e procedimentos de rotina.</p>
                                 </div>
                             </div>
                         </div>
@@ -90,28 +106,48 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
+            <!-- Shape Divider -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]" style="transform: rotate(180deg);">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[55px]">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-current" style="color: var(--cor-primaria);"></path>
+                </svg>
+            </div>
         </section>
 
-        <section id="contato" class="py-20 bg-[var(--cor-primaria)]">
+        <section id="agendamento" class="py-20 bg-[var(--cor-primaria)]">
             <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Entre em Contato</h2>
+                <h2 class="text-4xl font-bold text-[var(--cor-terciaria)] mb-12 text-center">Faça um Agendamento</h2>
                 
-                <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                <form id="agendamento-form" class="max-w-xl mx-auto bg-[var(--cor-secundaria)] p-8 rounded-lg shadow-xl">
                     <div class="mb-5">
-                        <label for="nome" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
-                        <input type="text" id="nome" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-secundaria)]">
+                        <label for="tutor-nome" class="block text-[var(--cor-primaria)] font-medium mb-2">Nome completo do Tutor</label>
+                        <input type="text" id="tutor-nome" name="tutor-nome" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]">
                     </div>
                     <div class="mb-5">
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Seu Email</label>
-                        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-secundaria)]">
+                        <label for="animal-nome" class="block text-[var(--cor-primaria)] font-medium mb-2">Nome do Animal</label>
+                        <input type="text" id="animal-nome" name="animal-nome" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]">
                     </div>
                     <div class="mb-5">
-                        <label for="mensagem" class="block text-gray-700 font-medium mb-2">Mensagem</label>
-                        <textarea id="mensagem" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-secundaria)]"></textarea>
+                        <label for="email" class="block text-[var(--cor-primaria)] font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                        <div>
+                            <label for="data" class="block text-[var(--cor-primaria)] font-medium mb-2">Data Pretendida</label>
+                            <input type="date" id="data" name="data" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]">
+                        </div>
+                        <div>
+                            <label for="hora" class="block text-[var(--cor-primaria)] font-medium mb-2">Hora Pretendida</label>
+                            <input type="time" id="hora" name="hora" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]">
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="motivo" class="block text-[var(--cor-primaria)] font-medium mb-2">Motivo da Consulta</label>
+                        <textarea id="motivo" name="motivo" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--cor-primaria)]"></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="bg-[var(--cor-secundaria)] text-white text-lg font-medium px-8 py-3 rounded-lg hover:opacity-90 transition duration-300">
-                            Enviar Mensagem
+                        <button type="submit" class="bg-[var(--cor-primaria)] text-[var(--cor-terciaria)] text-lg font-medium px-8 py-3 rounded-lg hover:opacity-90 transition duration-300 color: [var(--cor-primaria)]">
+                            Solicitar Agendamento
                         </button>
                     </div>
                 </form>
@@ -121,8 +157,8 @@
     </main>
 
     <footer class="bg-[var(--cor-secundaria)] text-white p-6 text-center">
-        <p>&copy; 2025 VetAzul. Todos os direitos reservados.</p>
-        <p class="text-[var(--cor-primaria)]">Feito com carinho e Tailwind CSS</p>
+        <p>&copy; 2025 Andreza Pordeus. Todos os direitos reservados.</p>
+        <p class="text-[var(--cor-primaria)]"></p>
     </footer>
 
     <!-- Link para o JS do Swiper -->
@@ -150,6 +186,38 @@
                     spaceBetween: 30
                 }
             }
+        });
+
+        // Script para enviar formulário para o Google Sheets
+        const form = document.getElementById('agendamento-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // !!! IMPORTANTE: Substitua pela URL do seu script do Google Apps !!!
+            const scriptURL = 'COLE_A_URL_DO_SEU_SCRIPT_AQUI'; 
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Enviando...';
+
+            fetch(scriptURL, { method: 'POST', body: formData})
+                .then(response => {
+                    if (response.ok) {
+                        alert('Agendamento solicitado com sucesso! Entraremos em contato em breve para confirmar.');
+                        form.reset();
+                    } else {
+                        throw new Error('Houve um problema com a sua solicitação.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('Erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                });
         });
     </script>
 </body>
