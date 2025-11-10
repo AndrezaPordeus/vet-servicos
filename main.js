@@ -48,7 +48,7 @@ form.addEventListener('submit', async function(e) {
         return;
     }
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz7-nNbmb9kwRHFNjWjrQBZJM1Z3RRV4KklaPUJoss30dfF9yS5S7p9Q7RuHF_4ssQjIg/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwufduumn5Cfan_rh56yn6stP5sk31xj-IUv6LCVdx3wsfVrZpmWYMxVfDv_CsW8M2-GQ/exec'; 
     const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.innerHTML;
 
