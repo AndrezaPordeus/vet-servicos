@@ -4,7 +4,7 @@ Este é um projeto pessoal desenvolvido como parte de um exercício prático par
 
 ## 📜 Sobre o Projeto
 
-O objetivo foi criar uma página web de uma única página (one-page) que apresentasse os serviços de uma médica veterinária, incluindo seções como "Sobre Mim", "Serviços" e um formulário funcional de "Agendamento". O foco principal foi a prática de estilização com classes utilitárias e a estruturação de um layout coeso.
+O objetivo foi criar uma página web de uma única página (one-page) que apresentasse os serviços de uma médica veterinária, incluindo seções como "Sobre Mim", "Serviços" e um formulário funcional de agendamento. O foco principal foi a prática de estilização com classes utilitárias e a estruturação de um layout coeso.
 
 ## ✨ Funcionalidades
 
@@ -20,15 +20,6 @@ O objetivo foi criar uma página web de uma única página (one-page) que aprese
 *   **Tailwind CSS:** Para a estilização rápida e utilitária, permitindo a criação de um design customizado sem escrever CSS tradicional.
 *   **JavaScript (ES6):** Para a interatividade, incluindo a inicialização do carrossel e o envio do formulário.
 *   **Swiper.js:** Uma biblioteca moderna para criar carrosséis responsivos.
-*   **Google Fonts:** Para a importação da fonte "Nunito".
-
-## 🏃‍♀️ Como Executar
-
-Como este é um projeto front-end estático, não há necessidade de um servidor ou processo de build complexo.
-
-1.  Clone este repositório (ou simplesmente baixe os arquivos).
-2.  Abra o arquivo `index.html` diretamente no seu navegador de preferência (como Google Chrome, Firefox, etc.).
-
-E pronto! A página será exibida.
+*   **Google Sheets:** Para a integração de dados inseridos no formulário.
 
 ---
